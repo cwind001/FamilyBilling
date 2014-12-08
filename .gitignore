@@ -57,3 +57,12 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+/target
+
+#Project specific
+.classpath
+.project
+.settings/
+FamilyBilling.iml
+FamilyBilling.ipr
+FamilyBilling.iws
