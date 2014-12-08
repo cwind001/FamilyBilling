@@ -1,0 +1,48 @@
+div#title{background-image:url('/FamilyBilling/images/title.jpg');
+width:1260px;height:100;background-attachment:fixed;background-repeat:no-repeat;}
+div#container{width:1260px;}
+div#header {background-color:#b3d3e0;}
+div#menu {background-color:#EEEEEE;height:590;width:250;float:left;font-family:Microsoft YaHei;}
+div#content {background-color:#fff5ee;height:590;width:1010;float:left;font-family:Microsoft YaHei;font-size:30;}
+div#footer {background-color:#99bbbb;clear:both;text-align:center;font-family:Microsoft YaHei;}
+h1 {margin-bottom:0;}
+h2 {margin-bottom:0;font-size:18px;}
+ul {margin:0;}
+li {list-style:none;}
+
+body { color: #000000; margin: 15px; }
+td , input , select , button , div , h5{ font-size: 12px; }
+a { color: #000000; text-decoration: none; }
+a:hover { color: #FF6600}
+
+#topnav { float:right; margin-top: 25px; }
+
+#lg_head , #rg_head { height: 70px; width: 760px;  background-repeat: no-repeat;
+	background-position: 170px 1px; text-align: left; margin: 1px; }
+#lg_head { background-image: url(lg_hi.gif); }
+#rg_head { background-image: url(rg_hi.gif); }
+
+.rg_th { background-color: #8C4066; padding: 10px; color: #FFF; }
+.rg_th strong { color: #FF8CBE; }
+.itxt { border: 1px solid #333; padding: 1px; height: 14px;}
+table.lg_mtbl {  border-collapse: collapse; border: 1px solid #F4E4EE; background-color: #FFF;}
+table.rg_mtbl {  border-collapse: collapse;  margin-bottom:1px; background-color: #FFF;}
+
+table.lg_mtbl th , table.rg_mtbl th{ border: 1px solid #F4E4EE; font-size: 14px; font-weight: normal; color: #8C3C64; padding:8px; background-color: #FFF; text-align:right; }
+table.lg_mtbl td { font-size: 14px; color: #000; padding:8px;}
+table.rg_mtbl td { border: 1px solid #F4E4EE; font-size: 14px; color: #000; padding:8px;}
+
+table.lg_mtbl td * , table.rg_mtbl td * { vertical-align:middle; }
+table.rg_mtbl td p { text-indent: 24px; }
+
+td.btxt{ text-align:center; border: none; background-color: #FFEFF7; padding: 15px; }
+.btxt button { height: 24px; width: 60px; background-color: #CC3366; border: none; color: #FFF; }
+
+input, .nvgt {
+	font-size: 12px; height: 1.5em; background-color: #EEEEEE; border: 1px solid #999999; }
+
+.txt12 , .txt12 a { color:#000; line-height:16px; font-size:12px; }
+.nvgta , .nvgta a { color: #999; line-height: 21px}
+.fttbl { border-top: 1px solid #CCC; margin-top: 30px;}
+.text2 a { color: #333; line-height: 18px}
+.errmsg { color: #FF3333; }
