@@ -103,12 +103,12 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(24) NOT NULL,
-  `password` varchar(24) NOT NULL,
+  `password` varchar(32) DEFAULT NULL,
   `email` varchar(32) NOT NULL,
   `role` int(11) DEFAULT NULL,
   `created` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +117,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (3,'Billy','123','billy.chen@angel.com',1,'2014-12-07'),(4,'a','b','d',1,'2014-12-07'),(5,'陈文','1234QWER','wen.chen@genesys.com',1,'2014-12-07'),(6,'江金津','1234QWER','jjj@jj.com',1,'2014-12-07'),(7,'江金津','123','jjj@jj.com',1,'2014-12-07');
+INSERT INTO `user` VALUES (3,'Billy','123','billy.chen@angel.com',1,'2014-12-07'),(5,'陈文','1234QWER','wen.chen@genesys.com',1,'2014-12-07'),(6,'江金津','1234QWER','jjj@jj.com',1,'2014-12-07'),(7,'江金津','123','jjj@jj.com',1,'2014-12-07'),(9,'金猪','jjj092786','laichuanglanzhu@163.com',1,'2014-12-08'),(10,'test','abc','ee@abc.com',1,'2014-12-08'),(11,'test','abc','test@test.com',1,'2014-12-08'),(12,'abc','E2FC714C4727EE9395F324CD2E7F331F','abc',1,'2014-12-08');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -130,4 +130,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-08  9:06:59
+-- Dump completed on 2014-12-09  9:25:52

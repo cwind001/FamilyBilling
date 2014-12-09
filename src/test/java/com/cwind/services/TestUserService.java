@@ -17,9 +17,10 @@ public class TestUserService {
 		UserService us = (UserService) context.getBean("UserService");
 
 		int tmprole = 1;
-		User tmpUser = new User("Billy", "billy.chen@angel.com", tmprole);
-		tmpUser.setPassword("123");
-		us.save(tmpUser);
+		User tmpUser;
+//		User tmpUser = new User("Billy", "billy.chen@angel.com", tmprole);
+//		tmpUser.setPassword("123");
+//		us.save(tmpUser);
 		
 		List<User> userlist = us.findAll();
 		for (int i = 0; i < userlist.size(); i++) {

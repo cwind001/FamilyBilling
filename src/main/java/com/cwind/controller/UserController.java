@@ -14,6 +14,7 @@ import com.cwind.entity.User;
 import com.cwind.meta.Meta;
 import com.cwind.meta.UserRole;
 import com.cwind.services.UserService;
+import com.cwind.util.CipherUtils;
 
 @Controller
 @RequestMapping(value="user")
@@ -34,7 +35,7 @@ public class UserController {
 		String userName = (String) request.getParameter(Meta.USER_NAME());
 		String email = (String) request.getParameter(Meta.EMAIL());
         User user = new User(userName, email, UserRole.ROLE_ADMIN);
-        user.setPassword(pass1);
+        user.setPassword(CipherUtils.generatePassword(pass1));
         user.setCreated(Calendar.getInstance().getTime());
         userService.save(user);
         
