@@ -13,19 +13,16 @@ import javax.persistence.Table;
 public class ExpenseType {
 	private Integer id;
 	private Integer category_id;
-	private Integer value;
 	private String displayname;
 	
 	public ExpenseType(){
 		
 	}
 	
-	public ExpenseType(Integer id, Integer category_id, Integer value,
-			String displayname) {
+	public ExpenseType(Integer id, Integer category_id, String displayname) {
 		super();
 		this.id = id;
 		this.category_id = category_id;
-		this.value = value;
 		this.displayname = displayname;
 	}
 	
@@ -45,14 +42,6 @@ public class ExpenseType {
 	}
 	public void setCategory_id(Integer category_id) {
 		this.category_id = category_id;
-	}
-	
-	@Column(name="value")
-	public Integer getValue() {
-		return value;
-	}
-	public void setValue(Integer value) {
-		this.value = value;
 	}
 	
 	@Column(name="displayname")

@@ -52,6 +52,9 @@ CREATE TABLE `expenses` (
   `description` varchar(800) DEFAULT NULL,
   `expenseType_id` int(11) DEFAULT NULL,
   `created` date DEFAULT NULL,
+  `title` varchar(64) DEFAULT NULL,
+  `vender` varchar(32) DEFAULT NULL,
+  `amount` double DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `expenseType_id` (`expenseType_id`)
@@ -77,7 +80,6 @@ DROP TABLE IF EXISTS `expensetype`;
 CREATE TABLE `expensetype` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) DEFAULT NULL,
-  `value` int(11) DEFAULT NULL,
   `displayname` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `category_id` (`category_id`)
@@ -108,7 +110,7 @@ CREATE TABLE `user` (
   `role` int(11) DEFAULT NULL,
   `created` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +119,6 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (3,'Billy','123','billy.chen@angel.com',1,'2014-12-07'),(5,'陈文','1234QWER','wen.chen@genesys.com',1,'2014-12-07'),(6,'江金津','1234QWER','jjj@jj.com',1,'2014-12-07'),(7,'江金津','123','jjj@jj.com',1,'2014-12-07'),(9,'金猪','jjj092786','laichuanglanzhu@163.com',1,'2014-12-08'),(10,'test','abc','ee@abc.com',1,'2014-12-08'),(11,'test','abc','test@test.com',1,'2014-12-08'),(12,'abc','E2FC714C4727EE9395F324CD2E7F331F','abc',1,'2014-12-08');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -130,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-09  9:25:52
+-- Dump completed on 2014-12-10 18:54:40

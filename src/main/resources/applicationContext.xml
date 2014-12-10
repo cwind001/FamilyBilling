@@ -3,4 +3,5 @@
 <beans>
 	<import resource="classpath:Hibernate.xml" />
 	<import resource="classpath:Service.xml" />
+	
 </beans>

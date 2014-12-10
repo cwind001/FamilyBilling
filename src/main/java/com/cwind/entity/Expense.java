@@ -16,6 +16,9 @@ public class Expense {
 	
 	private Integer id;
 	private Integer user_id;
+	private String title;
+	private String vender;
+	private double amount;
 	private String description;
 	private Integer expenseType_id;
 	private Date created;
@@ -24,11 +27,14 @@ public class Expense {
 		
 	}
 	
-	public Expense(Integer id, Integer user_id, String description,
-			Integer expenseType_id, Date created) {
+	public Expense(Integer id, Integer user_id, String title, String vender, double amount,
+			String description,	Integer expenseType_id, Date created) {
 		super();
 		this.id = id;
 		this.user_id = user_id;
+		this.title = title;
+		this.vender = vender;
+		this.amount = amount;
 		this.description = description;
 		this.expenseType_id = expenseType_id;
 		this.created = created;
@@ -79,6 +85,33 @@ public class Expense {
 
 	public void setCreated(Date created) {
 		this.created = created;
+	}
+
+	@Column(name="title")
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	@Column(name="vender")
+	public String getVender() {
+		return vender;
+	}
+
+	public void setVender(String vender) {
+		this.vender = vender;
+	}
+
+	@Column(name="amount")
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 	
 }

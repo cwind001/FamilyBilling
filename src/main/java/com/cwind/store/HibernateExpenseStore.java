@@ -34,7 +34,7 @@ public class HibernateExpenseStore extends HibernateDaoSupport implements
 	}
 
 	public List<Expense> findAll() {
-		String queryStr = "from Expense";
+		String queryStr = "from Expenses";
 		return (List<Expense>) getHibernateTemplate().find(queryStr);
 	}
 
