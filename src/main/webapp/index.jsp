@@ -18,6 +18,7 @@
           <tr><td>密码</td><td><input type="password" name="password"  value=""/></td></tr>
           <tr><td>&nbsp;</td><td><input type="submit" name="Login" value="登录"/></td></tr>
           <tr><td><a href="/FamilyBilling/jsp/user/newUser.jsp">新用户注册</a></td></tr>
+          <tr><td><a href="tel:18368875918">拨号</a></td></tr>
         </table> 
        	</form>
         </div>
