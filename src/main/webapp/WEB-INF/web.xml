@@ -60,7 +60,37 @@
     <servlet-mapping> 
         <servlet-name>default</servlet-name> 
         <url-pattern>*.js</url-pattern> 
+    </servlet-mapping>
+    
+    <servlet-mapping> 
+        <servlet-name>default</servlet-name> 
+        <url-pattern>*.html</url-pattern> 
     </servlet-mapping>     
+    
+    <servlet-mapping> 
+        <servlet-name>default</servlet-name> 
+        <url-pattern>*.eot</url-pattern> 
+    </servlet-mapping>
+    
+    <servlet-mapping> 
+        <servlet-name>default</servlet-name> 
+        <url-pattern>*.woff</url-pattern> 
+    </servlet-mapping>
+    
+    <servlet-mapping> 
+        <servlet-name>default</servlet-name> 
+        <url-pattern>*.ttf</url-pattern> 
+    </servlet-mapping>
+    
+    <servlet-mapping> 
+        <servlet-name>default</servlet-name> 
+        <url-pattern>*.otf</url-pattern> 
+    </servlet-mapping>
+    
+    <servlet-mapping> 
+        <servlet-name>default</servlet-name> 
+        <url-pattern>*.svg</url-pattern> 
+    </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
