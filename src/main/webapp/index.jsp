@@ -22,13 +22,15 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">欢迎使用</a>
+        <a class="navbar-brand" href="#">家用记账系统</a>
       </div>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
-        <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+        <li><a href="#"><i class="fa fa-home"></i> 首页</a></li>
+        <li><a href="#category"><i class="fa fa-shield"></i> 分类</a></li>
+        <li><a href="#contact"><i class="fa fa-shield"></i> 费用</a></li>
+        <li><a href="#about"><i class="fa fa-shield"></i> 贷款</a></li>
+        <li><a href="#contact"><i class="fa fa-shield"></i> 账户</a></li>
       </ul>
     </div>
   </nav>
@@ -42,9 +44,9 @@
   </div>
   
   <footer class="text-center">
-    <p>View the tutorial on <a href="http://scotch.io/tutorials/javascript/single-page-apps-with-angularjs-routing-and-templating">Scotch.io</a></p>
+    <p>官方文档 <a href="http://cwind001.github.io/">Family Billing</a></p>
   
-    <p>View a tutorial on <a href="http://scotch.io/tutorials/javascript/animating-angularjs-apps-ngview">Animating Your Angular Single Page App</a></p>
+    <p>Copyright © <a href="http://cwind001.github.io/">cwind001</a> 2014-2015</p>
   </footer>
   
 </body>

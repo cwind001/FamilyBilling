@@ -10,6 +10,11 @@
 				templateUrl : 'jsp/home.html',
 				controller  : 'mainController'
 			})
+			
+			.when('/category', {
+				templateUrl : 'jsp/category.jsp',
+				controller  : 'categoryController'
+			})
 
 			// route for the about page
 			.when('/about', {
@@ -27,8 +32,12 @@
 	// create the controller and inject Angular's $scope
 	cwindApp.controller('mainController', function($scope) {
 		// create a message to display in our view
-		$scope.message = 'Everyone come and see how good I look!';
+		$scope.message = '欢迎使用家用记账系统!';
 	});
+	
+	cwindApp.controller('categoryController', function($scope) {
+		$scope.message = 'Category';
+	})
 
 	cwindApp.controller('aboutController', function($scope) {
 		$scope.message = 'Look! I am an about page.';
