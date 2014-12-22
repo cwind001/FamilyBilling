@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-import com.cwind.services.UserService;
+import com.cwind.services.UserServiceImpl;
 import com.cwind.entity.User;
 
 public class TestUserService {
@@ -14,7 +14,7 @@ public class TestUserService {
 		ApplicationContext context = new FileSystemXmlApplicationContext(
 				new String[] { "src/main/resources/applicationContext.xml" });
 
-		UserService us = (UserService) context.getBean("UserService");
+		UserServiceImpl us = (UserServiceImpl) context.getBean("UserService");
 
 		int tmprole = 1;
 		User tmpUser;

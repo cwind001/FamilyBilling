@@ -5,7 +5,7 @@ import java.util.List;
 import com.cwind.entity.User;
 import com.cwind.store.UserStore;
 
-public class UserService {
+public class UserServiceImpl implements IUserService {
 	private UserStore userStore;
 
 	public UserStore getUserStore() {

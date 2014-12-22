@@ -46,7 +46,7 @@
   <footer class="text-center">
     <p>官方文档 <a href="http://cwind001.github.io/">Family Billing</a></p>
   
-    <p>Copyright © <a href="http://cwind001.github.io/">cwind001</a> 2014-2015</p>
+    <p>Copyright © <a href="https://github.com/cwind001">cwind001</a> 2014-2015</p>
   </footer>
   
 </body>

@@ -10,27 +10,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.cwind.entity.User;
-import com.cwind.services.UserService;
+import com.cwind.services.UserServiceImpl;
 
 @Controller
 @RequestMapping("account")
 public class FamilyBillingController {
 	
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userService;
 	
 	@RequestMapping(value="/userList", method=RequestMethod.GET)
 	@ResponseBody
-	public List<User> getAllUsers(HttpServletRequest request) { 
+	public List<User> getAllUsers() { 
 		List<User> users = userService.findAll();
 		return users;
 	}
 
 	@RequestMapping(value="/add", method=RequestMethod.PUT)
 	@ResponseBody
-	public List<User> addUser(@RequestBody User user, HttpServletRequest request){
+	public List<User> addUser(@RequestBody User user){
 		userService.save(user);
 		List<User> users = userService.findAll();
 		return users;
@@ -38,27 +39,19 @@ public class FamilyBillingController {
 	
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	@ResponseBody
-	public List<User> updateUser(@RequestBody User user, HttpServletRequest request){
+	public List<User> updateUser(@RequestBody User user){
 		userService.update(user);
 		List<User> users = userService.findAll();
 		return users;
 	}
 
-	@RequestMapping(value="/delete", method=RequestMethod.DELETE)
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.DELETE)
 	@ResponseBody
-	public List<User> deleteUser(HttpServletRequest request){
-		String userId = request.getParameter("id");
-		if(userId != null){
-			userService.delete(Integer.valueOf(userId));	
+	public List<User> deleteUser(@PathVariable String id){
+		if(id != null){
+			userService.delete(Integer.valueOf(id));	
 		}
 		List<User> users = userService.findAll();
 		return users;
 	}
-	
-	@RequestMapping(value="/test", method=RequestMethod.GET)
-	@ResponseBody
-	public String test(HttpServletRequest request) { 
-		return "success!";
-	}
-	
 }

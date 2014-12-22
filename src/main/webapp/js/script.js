@@ -1,13 +1,20 @@
 	// create the module and name it cwindApp
 	var cwindApp = angular.module('cwindApp', ['ngRoute', 'ngResource']);
 
+	var userUrl = {
+		'addUrl' : '/FamilyBilling/account/add',
+		'updateUrl' : '/FamilyBilling/account/update',
+		'deleteUrl' : '/FamilyBilling/account/delete/:id',
+		'queryUrl' : '/FamilyBilling/account/userList'
+	}
+	
 	// configure our routes
 	cwindApp.config(function($routeProvider) {
 		$routeProvider
 
 			// route for the home page
 			.when('/', {
-				templateUrl : 'jsp/home.html',
+				templateUrl : 'jsp/home.jsp',
 				controller  : 'mainController'
 			})
 			
@@ -19,7 +26,7 @@
 			// route for the about page
 			.when('/about', {
 				templateUrl : 'jsp/about.jsp',
-				controller  : 'TestController'
+				controller  : 'UserController'
 			})
 
 			// route for the contact page
@@ -39,20 +46,16 @@
 		$scope.message = 'Category';
 	})
 
-	cwindApp.controller('aboutController', function($scope) {
-		$scope.message = 'Look! I am an about page.';
-	});
-
 	cwindApp.controller('contactController', function($scope) {
 		$scope.message = 'Contact us! JK. This is just a demo.';
 	});
 	
-	cwindApp.factory('Test', function($resource){
-		return $resource('/FamilyBilling/account/userList');
-	});
-	
-	cwindApp.controller('TestController', function($scope, Test){
-		  var entries = Test.query({}, function(data) {
-			  $scope.mydata = data;
-		  });
+	cwindApp.controller('UserController', function($scope, $resource){
+		var userList = $resource(userUrl.queryUrl);
+		var userEntries = userList.query({}, function(data) {
+			$scope.mydata = data;
+		});
+		var userDelete = $resource(userUrl.deleteUrl);
+		$scope.deleteUser = function(user){
+		};
 	});
