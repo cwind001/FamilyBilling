@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cwind.entity.User;
 import com.cwind.meta.Meta;
 import com.cwind.meta.UserRole;
-import com.cwind.services.UserServiceImpl;
+import com.cwind.services.UserService;
 import com.cwind.util.CipherUtils;
 
 @Controller
@@ -21,7 +21,7 @@ import com.cwind.util.CipherUtils;
 public class UserController {
 
 	@Resource
-	private UserServiceImpl userService;
+	private UserService userService;
 	
 	@RequestMapping(params="command=newUser")
 	public ModelAndView newUserExec(HttpServletRequest request,HttpServletResponse response){

@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cwind.entity.User;
-import com.cwind.services.UserServiceImpl;
+import com.cwind.services.UserService;
 
 @Controller
 @RequestMapping("account")
 public class FamilyBillingController {
 	
 	@Autowired
-	private UserServiceImpl userService;
+	private UserService userService;
 	
 	@RequestMapping(value="/userList", method=RequestMethod.GET)
 	@ResponseBody

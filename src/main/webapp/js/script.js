@@ -51,11 +51,55 @@
 	});
 	
 	cwindApp.controller('UserController', function($scope, $resource){
+		var actions = {
+		        'add' : {
+		            method : 'PUT',
+		            isArray : true,
+		            headers : {
+		                'Content-Type' : 'application/json'
+		            }
+		        },
+		        'delete' : {
+		            method : 'DELETE',
+		            isArray : true
+		        },
+		        'query' : {
+		            method : 'GET',
+		            isArray : true
+		        },
+		        'update' : {
+		            method : 'POST',
+		            isArray : true,
+		            headers : {
+		                'Content-Type' : 'application/json'
+		            }
+		        }
+		    };
+		
 		var userList = $resource(userUrl.queryUrl);
 		var userEntries = userList.query({}, function(data) {
 			$scope.mydata = data;
 		});
+		
 		var userDelete = $resource(userUrl.deleteUrl);
-		$scope.deleteUser = function(user){
+		$scope.deleteUser = function(user, index){
+			$scope.mydata.splice(index, 1);
+			userDelete['delete']({
+	            id : user.id
+	        }, {}, function(data) {
+	        	$scope.mydata = data;
+	        });
 		};
+		
+		var userAdd = $resource(userUrl.addUrl, {}, actions);
+		$scope.addUser = function(){
+			userAdd.add($scope.newUser);
+			$scope.mydata.push($scope.newUser);
+			$scope.showInputField = 0;
+		};
+		
+		$scope.showInputField = function(){
+			$scope.showInputField = 1;
+		}
+		
 	});

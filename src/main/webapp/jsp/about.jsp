@@ -11,7 +11,7 @@
 			<tr>
 				<th>用户id</th>
 				<th>用户名称</th>
-				<th>用户姓名</th>
+				<th>用户邮箱</th>
 				<th>创建日期</th>
 				<th>用户操作</th>
 			</tr>
@@ -21,8 +21,16 @@
 				<td>{{user.username}}</td>
 				<td>{{user.email}}</td>
 				<td>{{user.created}}</td>
-				<td></td>
+				<td><a class="btn btn-danger" ng-click="deleteUser(user, $index)">删除</a></td>
 			</tr>
 		</table>
+	</div>
+</div>
+<div>
+	<a class="btn btn-primary" ng-click="showInputField()">添加</a>
+	<div ng-show="showInputField==1">
+		用户名:<input type="text" ng-model="newUser.username" /><br/>
+   		Email:<input type="text" ng-model="newUser.email" /><br/>
+   		<a class="btn btn-primary" ng-click="addUser()">保存</a>
 	</div>
 </div>

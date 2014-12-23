@@ -39,4 +39,22 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	
+	<bean id="CategoryStore" class="com.cwind.store.HibernateCategoryStore">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="ExpenseStore" class="com.cwind.store.HibernateExpenseStore">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="ExpenseTypeStore" class="com.cwind.store.HibernateExpenseTypeStore">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 </beans>

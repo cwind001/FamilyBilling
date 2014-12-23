@@ -5,7 +5,8 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-import com.cwind.services.UserServiceImpl;
+import com.cwind.meta.UserRole;
+import com.cwind.services.UserService;
 import com.cwind.entity.User;
 
 public class TestUserService {
@@ -14,13 +15,12 @@ public class TestUserService {
 		ApplicationContext context = new FileSystemXmlApplicationContext(
 				new String[] { "src/main/resources/applicationContext.xml" });
 
-		UserServiceImpl us = (UserServiceImpl) context.getBean("UserService");
+		UserService us = (UserService) context.getBean("UserService");
 
-		int tmprole = 1;
-		User tmpUser;
-//		User tmpUser = new User("Billy", "billy.chen@angel.com", tmprole);
-//		tmpUser.setPassword("123");
-//		us.save(tmpUser);
+//		User tmpUser;
+		User tmpUser = new User("Billy", "billy.chen@angel.com", UserRole.ROLE_ADMIN);
+		tmpUser.setPassword("123");
+		us.save(tmpUser);
 		
 		List<User> userlist = us.findAll();
 		for (int i = 0; i < userlist.size(); i++) {

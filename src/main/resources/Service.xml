@@ -16,7 +16,7 @@
 		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 		<property name="beanNames">
 			<list>
-				<value>*ServiceImpl</value>
+				<value>*Service</value>
 			</list>
 		</property>
 		<property name="interceptorNames">
@@ -26,9 +26,21 @@
 		</property>
 	</bean>
 
-	<bean id="UserService" class="com.cwind.services.UserServiceImpl">
+	<bean id="UserService" class="com.cwind.services.UserService">
 		<property name="userStore">
 			<ref bean="UserStore" />
+		</property>
+	</bean>
+	
+	<bean id="CategoryService" class="com.cwind.services.CategoryService">
+		<property name="categoryStore">
+			<ref bean="CategoryStore" />
+		</property>
+	</bean>
+	
+	<bean id="ExpenseService" class="com.cwind.services.ExpenseService">
+		<property name="expenseStore">
+			<ref bean="ExpenseStore" />
 		</property>
 	</bean>
 	
