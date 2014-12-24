@@ -5,7 +5,7 @@
 </head>
 
 <div class="jumbotron text-center">
-	<h1>About</h1>
+	<h2>测试页</h2>
 		<div>
 		<table class="table table-striped">
 			<tr>
@@ -27,7 +27,7 @@
 	</div>
 </div>
 <div>
-	<a class="btn btn-primary" ng-click="showInputField()">添加</a>
+	<a class="btn btn-primary" ng-click="showInputField()">添加</a>&nbsp;<a class="btn btn-primary" href="#category">跳转</a>
 	<div ng-show="showInputField==1">
 		用户名:<input type="text" ng-model="newUser.username" /><br/>
    		Email:<input type="text" ng-model="newUser.email" /><br/>

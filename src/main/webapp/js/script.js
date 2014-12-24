@@ -2,10 +2,10 @@
 	var cwindApp = angular.module('cwindApp', ['ngRoute', 'ngResource']);
 
 	var userUrl = {
-		'addUrl' : '/FamilyBilling/account/add',
-		'updateUrl' : '/FamilyBilling/account/update',
-		'deleteUrl' : '/FamilyBilling/account/delete/:id',
-		'queryUrl' : '/FamilyBilling/account/userList'
+		'addUrl' : '/FamilyBilling/billing/account/add',
+		'updateUrl' : '/FamilyBilling/billing/account/update',
+		'deleteUrl' : '/FamilyBilling/billing/account/delete/:id',
+		'queryUrl' : '/FamilyBilling/billing/account/userList'
 	}
 	
 	// configure our routes
@@ -23,16 +23,24 @@
 				controller  : 'categoryController'
 			})
 
-			// route for the about page
-			.when('/about', {
-				templateUrl : 'jsp/about.jsp',
-				controller  : 'UserController'
+			.when('/loan', {
+				templateUrl : 'jsp/loan.jsp',
+				controller  : 'loanController'
+			})
+			
+			.when('/test', {
+				templateUrl : 'jsp/test.jsp',
+				controller : 'userController'
+			})
+			
+			.when('/expense', {
+				templateUrl : 'jsp/expense.jsp',
+				controller : 'expenseController'
 			})
 
-			// route for the contact page
-			.when('/contact', {
-				templateUrl : 'jsp/contact.html',
-				controller  : 'contactController'
+			.when('/fundAccount', {
+				templateUrl : 'jsp/fundAccount.jsp',
+				controller  : 'fundAccountController'
 			});
 	});
 
@@ -43,14 +51,22 @@
 	});
 	
 	cwindApp.controller('categoryController', function($scope) {
-		$scope.message = 'Category';
-	})
-
-	cwindApp.controller('contactController', function($scope) {
-		$scope.message = 'Contact us! JK. This is just a demo.';
+		$scope.message = '费用分类管理';
 	});
 	
-	cwindApp.controller('UserController', function($scope, $resource){
+	cwindApp.controller('expenseController', function($scope) {
+		$scope.message = '费用管理';
+	});
+	
+	cwindApp.controller('loanController', function($scope) {
+		$scope.message = '贷款管理';
+	});
+
+	cwindApp.controller('fundAccountController', function($scope) {
+		$scope.message = '资金账户余额';
+	});
+	
+	cwindApp.controller('userController', function($scope, $resource){
 		var actions = {
 		        'add' : {
 		            method : 'PUT',

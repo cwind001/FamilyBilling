@@ -15,8 +15,8 @@ public class TestCategoryService {
 
 		CategoryService cs = (CategoryService) context.getBean("CategoryService");
 		Category tmpCategory = new Category();
-		tmpCategory.setDisplayname("出账");
-//		cs.save(tmpCategory);
+		tmpCategory.setDisplayname("资产");
+		cs.save(tmpCategory);
 		
 		List<Category> categoryList = cs.findAll();
 		for (int i = 0; i < categoryList.size(); i++) {

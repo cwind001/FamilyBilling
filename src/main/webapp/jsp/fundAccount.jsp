@@ -5,7 +5,6 @@
 </head>
 
 <div class="jumbotron text-center">
-	<h2>分类管理</h2>
+	<h2>资金账户</h2>
 	<p>{{ message }}</p>
-
 </div>

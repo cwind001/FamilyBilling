@@ -14,20 +14,20 @@ import com.cwind.entity.User;
 import com.cwind.services.UserService;
 
 @Controller
-@RequestMapping("account")
+@RequestMapping("billing")
 public class FamilyBillingController {
 	
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/userList", method=RequestMethod.GET)
+	@RequestMapping(value="/account/userList", method=RequestMethod.GET)
 	@ResponseBody
 	public List<User> getAllUsers() { 
 		List<User> users = userService.findAll();
 		return users;
 	}
 
-	@RequestMapping(value="/add", method=RequestMethod.PUT)
+	@RequestMapping(value="/account/add", method=RequestMethod.PUT)
 	@ResponseBody
 	public List<User> addUser(@RequestBody User user){
 		userService.save(user);
@@ -35,7 +35,7 @@ public class FamilyBillingController {
 		return users;
 	}
 	
-	@RequestMapping(value="/update", method=RequestMethod.POST)
+	@RequestMapping(value="/account/update", method=RequestMethod.POST)
 	@ResponseBody
 	public List<User> updateUser(@RequestBody User user){
 		userService.update(user);
@@ -43,7 +43,7 @@ public class FamilyBillingController {
 		return users;
 	}
 
-	@RequestMapping(value="/delete/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/account/delete/{id}", method=RequestMethod.DELETE)
 	@ResponseBody
 	public List<User> deleteUser(@PathVariable String id){
 		if(id != null){
