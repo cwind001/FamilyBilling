@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cwind.entity.Category;
+import com.cwind.entity.ExpenseType;
 import com.cwind.entity.User;
+import com.cwind.services.CategoryService;
+import com.cwind.services.ExpenseService;
 import com.cwind.services.UserService;
 
 @Controller
@@ -19,6 +23,60 @@ public class FamilyBillingController {
 	
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private CategoryService categoryService;
+	
+	@Autowired 
+	private ExpenseService expenseService;
+	
+	@RequestMapping(value="/category/categoryList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Category> getCategories() {
+		List<Category> categories = categoryService.findAllCategories();
+		return categories;
+	}
+	
+	@RequestMapping(value="/category/add", method=RequestMethod.PUT)
+	@ResponseBody
+	public List<Category> addCategory(@RequestBody Category category){
+		categoryService.saveCategory(category);
+		List<Category> categories = categoryService.findAllCategories();
+		return categories;
+	}
+	
+	@RequestMapping(value="/expenseType/typeList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<ExpenseType> getExpenseTypes() {
+		List<ExpenseType> expenseTypes = categoryService.findAllExpenseTypes();
+		return expenseTypes;
+	}
+	
+	@RequestMapping(value="/expenseType/add", method=RequestMethod.PUT)
+	@ResponseBody
+	public List<ExpenseType> addExpenseType(@RequestBody ExpenseType expenseType) {
+		categoryService.saveExpenseType(expenseType);
+		List<ExpenseType> expenseTypes = categoryService.findAllExpenseTypes();
+		return expenseTypes;
+	}
+	
+	@RequestMapping(value="/expenseType/update", method=RequestMethod.POST)
+	@ResponseBody
+	public List<ExpenseType> updateExpenseType(@RequestBody ExpenseType expenseType){
+		categoryService.updateExpenseType(expenseType);
+		List<ExpenseType> expenseTypes = categoryService.findAllExpenseTypes();
+		return expenseTypes;
+	}
+
+	@RequestMapping(value="/expenseType/delete/{id}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public List<ExpenseType> deleteExpenseType(@PathVariable String id){
+		if(id != null){
+			categoryService.deleteExpenseType(Integer.valueOf(id));	
+		}
+		List<ExpenseType> expenseTypes = categoryService.findAllExpenseTypes();
+		return expenseTypes;
+	}
 	
 	@RequestMapping(value="/account/userList", method=RequestMethod.GET)
 	@ResponseBody

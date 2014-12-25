@@ -3,11 +3,22 @@ package com.cwind.services;
 import java.util.List;
 
 import com.cwind.entity.Category;
+import com.cwind.entity.ExpenseType;
 import com.cwind.store.CategoryStore;
+import com.cwind.store.ExpenseTypeStore;
 
 public class CategoryService {
 	private CategoryStore categoryStore;
+	private ExpenseTypeStore expenseTypeStore;
 	
+	public ExpenseTypeStore getExpenseTypeStore() {
+		return expenseTypeStore;
+	}
+
+	public void setExpenseTypeStore(ExpenseTypeStore expenseTypeStore) {
+		this.expenseTypeStore = expenseTypeStore;
+	}
+
 	public CategoryStore getCategoryStore() {
 		return categoryStore;
 	}
@@ -16,27 +27,55 @@ public class CategoryService {
 		this.categoryStore = categoryStore;
 	}
 
-	public Category get(Integer id){
+	public Category getCategory(Integer id){
 		return categoryStore.get(id);
 	}
 	
-	public Integer save(Category user){
+	public Integer saveCategory(Category user){
 		return categoryStore.save(user);
 	}
 	
-	public void update(Category user){
+	public void updateCategory(Category user){
 		categoryStore.update(user);
 	}
 	
-	public void delete(Category user){
+	public void deleteCategory(Category user){
 		categoryStore.delete(user);
 	}
 	
-	public void delete(Integer id){
+	public void deleteCategory(Integer id){
 		categoryStore.delete(id);
 	}
 	
-	public List<Category> findAll(){
+	public List<Category> findAllCategories(){
 		return categoryStore.findAll();
+	}
+	
+	public ExpenseType getExpenseType(Integer id){
+		return expenseTypeStore.get(id);
+	}
+	
+	public Integer saveExpenseType(ExpenseType expenseType){
+		return expenseTypeStore.save(expenseType);
+	}
+	
+	public void updateExpenseType(ExpenseType expenseType){
+		expenseTypeStore.update(expenseType);
+	}
+	
+	public void deleteExpenseType(ExpenseType expenseType){
+		expenseTypeStore.delete(expenseType);
+	}
+	
+	public void deleteExpenseType(Integer id){
+		expenseTypeStore.delete(id);
+	}
+	
+	public List<ExpenseType> findAllExpenseTypes(){
+		return expenseTypeStore.findAll();
+	}
+	
+	public List<ExpenseType> findExpenseTypeByCategory(Integer category_id){
+		return null;
 	}
 }

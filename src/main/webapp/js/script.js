@@ -1,12 +1,48 @@
 	// create the module and name it cwindApp
 	var cwindApp = angular.module('cwindApp', ['ngRoute', 'ngResource']);
 
+	var baseUrl = '/FamilyBilling/billing/';
+	
 	var userUrl = {
-		'addUrl' : '/FamilyBilling/billing/account/add',
-		'updateUrl' : '/FamilyBilling/billing/account/update',
-		'deleteUrl' : '/FamilyBilling/billing/account/delete/:id',
-		'queryUrl' : '/FamilyBilling/billing/account/userList'
+		'addUrl' : baseUrl + 'account/add',
+		'updateUrl' : baseUrl + 'account/update',
+		'deleteUrl' : baseUrl + 'account/delete/:id',
+		'queryUrl' : baseUrl + 'account/userList'
 	};
+	
+	var categoryUrl = {
+		'addCategory' : baseUrl + '/category/add',
+		'queryCategory' : baseUrl + '/category/categoryList',
+		'addExpenseType' : baseUrl + '/expenseType/add',
+		'queryExpenseType' : baseUrl + '/expenseType/typeList',
+		'updateExpenseType' : baseUrl + '/expenseType/update',
+		'deleteExpenseType' : baseUrl + '/expenseType/delete/:id'
+	};
+	
+	var actions = {
+	        'add' : {
+	            method : 'PUT',
+	            isArray : true,
+	            headers : {
+	                'Content-Type' : 'application/json'
+	            }
+	        },
+	        'delete' : {
+	            method : 'DELETE',
+	            isArray : true
+	        },
+	        'query' : {
+	            method : 'GET',
+	            isArray : true
+	        },
+	        'update' : {
+	            method : 'POST',
+	            isArray : true,
+	            headers : {
+	                'Content-Type' : 'application/json'
+	            }
+	        }
+	    };
 	
 	// configure our routes
 	cwindApp.config(function($routeProvider) {
@@ -50,10 +86,38 @@
 		$scope.message = '欢迎使用家用记账系统!';
 	});
 	
-	cwindApp.controller('categoryController', function($scope) {
-		$scope.message = '费用分类管理';
-		$scope.categories = ['开支','收入','贷款','资产'];
-//		$scope.category = $scope.categories[0];
+	cwindApp.controller('categoryController', function($scope, $resource) {
+		var categoryList = $resource(categoryUrl.queryCategory);
+		categoryList.query({}, function(categories) {
+			$scope.categories = categories;
+		});
+		
+		var expenseTypeList = $resource(categoryUrl.queryExpenseType);
+		expenseTypeList.query({}, function(types) {
+			$scope.expenseTypes = types;
+		});
+		
+		var expenseTypeDelete = $resource(categoryUrl.deleteExpenseType);
+		$scope.deleteExpenseType = function(expenseType, index){
+			$scope.expenseTypes.splice(index, 1);
+			expenseTypeDelete['delete']({
+				id : expenseType.id
+			}, {}, function(expenseTypes) {
+				$scope.expenseTypes = expenseTypes;
+			});
+		};
+		
+		var expenseTypeAdd = $resource(categoryUrl.addExpenseType, {}, actions);
+		$scope.addType = function(){
+			$scope.newType.category_id = $scope.category.id;
+			expenseTypeAdd.add($scope.newType);
+			$scope.expenseTypes.push($scope.newType);
+			$scope.showInputField = 0;
+		};
+		
+		$scope.showInputField = function(){
+			$scope.showInputField = 1;
+		}
 	});
 	
 	cwindApp.controller('expenseController', function($scope) {
@@ -69,31 +133,6 @@
 	});
 	
 	cwindApp.controller('userController', function($scope, $resource){
-		var actions = {
-		        'add' : {
-		            method : 'PUT',
-		            isArray : true,
-		            headers : {
-		                'Content-Type' : 'application/json'
-		            }
-		        },
-		        'delete' : {
-		            method : 'DELETE',
-		            isArray : true
-		        },
-		        'query' : {
-		            method : 'GET',
-		            isArray : true
-		        },
-		        'update' : {
-		            method : 'POST',
-		            isArray : true,
-		            headers : {
-		                'Content-Type' : 'application/json'
-		            }
-		        }
-		    };
-		
 		var userList = $resource(userUrl.queryUrl);
 		var userEntries = userList.query({}, function(data) {
 			$scope.mydata = data;

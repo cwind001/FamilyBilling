@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Criteria;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import com.cwind.entity.ExpenseType;
@@ -38,4 +39,8 @@ public class HibernateExpenseTypeStore extends HibernateDaoSupport implements
 		return (List<ExpenseType>) getHibernateTemplate().find(queryStr);
 	}
 
+	public List<ExpenseType> findByCriteria(Criteria criteria) {
+		//TODO
+		return null;
+	}
 }

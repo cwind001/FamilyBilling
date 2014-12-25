@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.cwind.entity.Category;
+import com.cwind.entity.ExpenseType;
 
 public class TestCategoryService {
 	public static void main(String[] args) {
@@ -16,11 +17,15 @@ public class TestCategoryService {
 		CategoryService cs = (CategoryService) context.getBean("CategoryService");
 		Category tmpCategory = new Category();
 		tmpCategory.setDisplayname("资产");
-		cs.save(tmpCategory);
+//		cs.saveCategory(tmpCategory);
 		
-		List<Category> categoryList = cs.findAll();
+		List<Category> categoryList = cs.findAllCategories();
 		for (int i = 0; i < categoryList.size(); i++) {
 			tmpCategory = categoryList.get(i);
+			ExpenseType tmpType = new ExpenseType();
+			tmpType.setDisplayname("TempType" + i);
+			tmpType.setCategory_id(tmpCategory.getId());
+			cs.saveExpenseType(tmpType);
 			System.out.println(tmpCategory.getId() + ", " + tmpCategory.getDisplayname());
 		}
 	}

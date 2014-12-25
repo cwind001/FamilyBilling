@@ -36,6 +36,9 @@
 		<property name="categoryStore">
 			<ref bean="CategoryStore" />
 		</property>
+		<property name="expenseTypeStore">
+			<ref bean="ExpenseTypeStore" />
+		</property>
 	</bean>
 	
 	<bean id="ExpenseService" class="com.cwind.services.ExpenseService">
