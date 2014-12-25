@@ -6,7 +6,7 @@
 		'updateUrl' : '/FamilyBilling/billing/account/update',
 		'deleteUrl' : '/FamilyBilling/billing/account/delete/:id',
 		'queryUrl' : '/FamilyBilling/billing/account/userList'
-	}
+	};
 	
 	// configure our routes
 	cwindApp.config(function($routeProvider) {
@@ -52,6 +52,8 @@
 	
 	cwindApp.controller('categoryController', function($scope) {
 		$scope.message = '费用分类管理';
+		$scope.categories = ['开支','收入','贷款','资产'];
+//		$scope.category = $scope.categories[0];
 	});
 	
 	cwindApp.controller('expenseController', function($scope) {

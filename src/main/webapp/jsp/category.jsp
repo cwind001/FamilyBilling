@@ -4,8 +4,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-left">
 	<h2>分类管理</h2>
-	<p>{{ message }}</p>
+	<select ng-model="category" ng-options="item for item in categories">
+		<option value="">--请选择--</option>
+	</select>
+	<p>{{ category }}</p>
 
 </div>
