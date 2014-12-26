@@ -6,7 +6,7 @@ FamilyBilling
 技术选型：AngularJS + SpringMVC + Hibernate; Bootstrap, Restful API, Maven。
 
 ###开发工具及部署环境
-JDK v1.8
+JDK v1.8<br/>
 Maven 3.2.3     
 Git 1.8.4     
 MySQL 5.5.11        
