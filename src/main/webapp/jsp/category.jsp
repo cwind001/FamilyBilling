@@ -15,18 +15,19 @@
 				<th>类名</th>
 				<th>操作</th>
 			</tr>
-			<tr ng-repeat="expenseType in expenseTypes" ng-class-even="'even'"
+			<tr ng-repeat="expenseType in filtered = (expenseTypes | filter:{'category_id':category.id})" ng-class-even="'even'"
 				ng-class-odd="'odd'">
 				<td>{{expenseType.id}} - {{expenseType.displayname}} </td>
 				<td><a class="btn btn-danger" ng-click="deleteExpenseType(expenseType, $index)">删除</a></td>
 			</tr>
+		</table>
+		</br>
+		总数: {{ filtered.length }}
+		<table class="table table-striped">
 			<tr>
-				<td ng-show='showInputField==1'>新类别：<input type="text" ng-model="newType.displayname"/>&nbsp;
-					<a class="btn btn-primary" ng-click="addType()">保存</a>
+				<td>新类别：<input type="text"	ng-model="newType.displayname" />&nbsp; 
+					<a class="btn btn-primary" ng-click="addType()">添加</a>
 				</td>
-			</tr>
-			<tr>
-				<td><a class="btn btn-primary" ng-click="showInputField()">添加</a></td>
 			</tr>
 		</table>
 	</div>

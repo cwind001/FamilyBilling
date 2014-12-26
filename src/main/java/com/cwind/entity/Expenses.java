@@ -11,31 +11,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="User")
-public class Expense {
+@Table(name="Expenses")
+public class Expenses {
 	
 	private Integer id;
 	private Integer user_id;
 	private String title;
 	private String vender;
-	private double amount;
-	private String description;
+	private double price;
+	private String memo;
 	private Integer expenseType_id;
 	private Date created;
 	
-	public Expense(){
+	public Expenses(){
 		
 	}
 	
-	public Expense(Integer id, Integer user_id, String title, String vender, double amount,
-			String description,	Integer expenseType_id, Date created) {
+	public Expenses(Integer id, Integer user_id, String title, String vender, double price,
+			String memo,	Integer expenseType_id, Date created) {
 		super();
 		this.id = id;
 		this.user_id = user_id;
 		this.title = title;
 		this.vender = vender;
-		this.amount = amount;
-		this.description = description;
+		this.price = price;
+		this.memo = memo;
 		this.expenseType_id = expenseType_id;
 		this.created = created;
 	}
@@ -60,13 +60,13 @@ public class Expense {
 		this.user_id = user_id;
 	}
 
-	@Column(name="description")
-	public String getDescription() {
-		return description;
+	@Column(name="memo")
+	public String getMemo() {
+		return memo;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setMemo(String memo) {
+		this.memo = memo;
 	}
 
 	@Column(name="expensetype_id")
@@ -105,13 +105,13 @@ public class Expense {
 		this.vender = vender;
 	}
 
-	@Column(name="amount")
-	public double getAmount() {
-		return amount;
+	@Column(name="price")
+	public double getPrice() {
+		return price;
 	}
 
-	public void setAmount(double amount) {
-		this.amount = amount;
+	public void setPrice(double price) {
+		this.price = price;
 	}
-	
+
 }

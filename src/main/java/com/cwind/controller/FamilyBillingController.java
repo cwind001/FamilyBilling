@@ -1,5 +1,6 @@
 package com.cwind.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cwind.entity.Category;
+import com.cwind.entity.Expenses;
 import com.cwind.entity.ExpenseType;
 import com.cwind.entity.User;
 import com.cwind.services.CategoryService;
@@ -29,6 +31,39 @@ public class FamilyBillingController {
 	
 	@Autowired 
 	private ExpenseService expenseService;
+	
+	@RequestMapping(value="/expense/expenseList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Expenses> getExpenses() {
+		List<Expenses> expenses = expenseService.findAll();
+		return expenses;
+	}
+	
+	@RequestMapping(value="/expense/add", method=RequestMethod.PUT)
+	@ResponseBody
+	public List<Expenses> addExpense(@RequestBody Expenses expense) {
+		expenseService.save(expense);
+		List<Expenses> expenses = expenseService.findAll();
+		return expenses;
+	}
+	
+	@RequestMapping(value="/expense/update", method=RequestMethod.POST)
+	@ResponseBody
+	public List<Expenses> updateExpense(@RequestBody Expenses expense){
+		expenseService.update(expense);
+		List<Expenses> expenses = expenseService.findAll();
+		return expenses;
+	}
+
+	@RequestMapping(value="/expense/delete/{id}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public List<Expenses> deleteExpense(@PathVariable String id){
+		if(id != null){
+			expenseService.delete(Integer.valueOf(id));
+		}
+		List<Expenses> expenses = expenseService.findAll();
+		return expenses;
+	}
 	
 	@RequestMapping(value="/category/categoryList", method=RequestMethod.GET)
 	@ResponseBody
@@ -75,6 +110,16 @@ public class FamilyBillingController {
 			categoryService.deleteExpenseType(Integer.valueOf(id));	
 		}
 		List<ExpenseType> expenseTypes = categoryService.findAllExpenseTypes();
+		return expenseTypes;
+	}
+	
+	@RequestMapping(value="/expenseType/{category_id}/typeList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<ExpenseType> getExpenseTypeByCategoryId(@PathVariable String category_id){
+		List<ExpenseType> expenseTypes = new ArrayList();
+		if(category_id != null){
+			expenseTypes = categoryService.findExpenseTypeByCategory(Integer.valueOf(category_id));
+		}
 		return expenseTypes;
 	}
 	

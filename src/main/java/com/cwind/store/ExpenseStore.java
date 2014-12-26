@@ -2,7 +2,7 @@ package com.cwind.store;
 
 import java.util.List;
 
-import com.cwind.entity.Expense;
+import com.cwind.entity.Expenses;
 
 /**
  * CRUD method defination for Expense
@@ -11,10 +11,10 @@ import com.cwind.entity.Expense;
  */
 
 public interface ExpenseStore {
-	Expense get(Integer id);
-	Integer save(Expense expense);
-	void update(Expense expense);
-	void delete(Expense expense);
+	Expenses get(Integer id);
+	Integer save(Expenses expense);
+	void update(Expenses expense);
+	void delete(Expenses expense);
 	void delete(Integer id);
-	List<Expense> findAll();
+	List<Expenses> findAll();
 }

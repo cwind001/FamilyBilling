@@ -16,7 +16,15 @@
 		'addExpenseType' : baseUrl + '/expenseType/add',
 		'queryExpenseType' : baseUrl + '/expenseType/typeList',
 		'updateExpenseType' : baseUrl + '/expenseType/update',
-		'deleteExpenseType' : baseUrl + '/expenseType/delete/:id'
+		'deleteExpenseType' : baseUrl + '/expenseType/delete/:id',
+		'queryExpenseTypeByCategoryId' : baseUrl + '/expenseType/:category_id/typeList'
+	};
+	
+	var expenseUrl = {
+		'addExpense' : baseUrl + '/expense/add',
+		'queryExpense' : baseUrl + '/expense/expenseList',
+		'updateExpense' : baseUrl + '/expense/update',
+		'deleteExpense' : baseUrl + '/expense/delete/:id'		
 	};
 	
 	var actions = {
@@ -110,18 +118,38 @@
 		var expenseTypeAdd = $resource(categoryUrl.addExpenseType, {}, actions);
 		$scope.addType = function(){
 			$scope.newType.category_id = $scope.category.id;
-			expenseTypeAdd.add($scope.newType);
-			$scope.expenseTypes.push($scope.newType);
-			$scope.showInputField = 0;
+			$scope.expenseTypes = expenseTypeAdd.add($scope.newType);
 		};
-		
-		$scope.showInputField = function(){
-			$scope.showInputField = 1;
-		}
 	});
 	
-	cwindApp.controller('expenseController', function($scope) {
-		$scope.message = '费用管理';
+	cwindApp.controller('expenseController', function($scope, $resource) {
+		var expenseTypeList = $resource(categoryUrl.queryExpenseTypeByCategoryId);
+		expenseTypeList.query({
+				category_id : 1
+			}, function(types) {
+			$scope.expenseTypes = types;
+		});
+		
+		var expenseList = $resource(expenseUrl.queryExpense);
+		expenseList.query({}, function(expenses) {
+			$scope.expenses = espenses;
+		});
+		
+		var expenseDelete = $resource(expenseUrl.deleteExpense);
+		$scope.deleteExpense = function(expense, index){
+			$scope.expenses.splice(index, 1);
+			expenseDelete['delete']({
+				id : expense.id
+			}, {}, function(expenses) {
+				$scope.expenses = expenses;
+			});
+		};
+		
+		var expenseAdd = $resource(expenseUrl.addExpense, {}, actions);
+		$scope.addExpense = function(){
+			$scope.newExpense.expenseType_id = $scope.expenseType.id;
+			$scope.expenses = expenseAdd.add($scope.newExpense);
+		};
 	});
 	
 	cwindApp.controller('loanController', function($scope) {

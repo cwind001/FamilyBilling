@@ -28,7 +28,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><i class="fa fa-home"></i> 首页</a></li>
         <li><a href="#category"><i class="fa fa-shield"></i> 分类</a></li>
-        <li><a href="#expense"><i class="fa fa-shield"></i> 费用</a></li>
+        <li><a href="#expense"><i class="fa fa-shield"></i> 开支</a></li>
         <li><a href="#loan"><i class="fa fa-shield"></i> 贷款</a></li>
         <li><a href="#fundAccount"><i class="fa fa-shield"></i> 资产</a></li>
       </ul>

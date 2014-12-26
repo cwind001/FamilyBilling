@@ -49,12 +49,12 @@ DROP TABLE IF EXISTS `expenses`;
 CREATE TABLE `expenses` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
-  `description` varchar(800) DEFAULT NULL,
   `expenseType_id` int(11) DEFAULT NULL,
   `created` date DEFAULT NULL,
   `title` varchar(64) DEFAULT NULL,
   `vender` varchar(32) DEFAULT NULL,
-  `amount` double DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `memo` varchar(800) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `expenseType_id` (`expenseType_id`)
@@ -83,7 +83,7 @@ CREATE TABLE `expensetype` (
   `displayname` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `category_id` (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,6 +92,7 @@ CREATE TABLE `expensetype` (
 
 LOCK TABLES `expensetype` WRITE;
 /*!40000 ALTER TABLE `expensetype` DISABLE KEYS */;
+INSERT INTO `expensetype` VALUES (1,3,'房贷'),(2,3,'车贷'),(3,1,'外出就餐'),(4,1,'食品采购'),(5,1,'超市购物'),(6,1,'水果'),(7,1,'网上购物'),(8,1,'人情往来'),(9,1,'通讯'),(10,1,'交通费'),(11,1,'家居'),(12,1,'家电'),(13,1,'水电煤'),(14,2,'工资'),(15,2,'奖金'),(16,2,'报销'),(17,2,'赠予'),(18,4,'银行卡'),(19,4,'理财'),(20,4,'现金'),(21,4,'基金'),(22,4,'股票');
 /*!40000 ALTER TABLE `expensetype` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +111,7 @@ CREATE TABLE `user` (
   `role` int(11) DEFAULT NULL,
   `created` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,6 +120,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Billy',NULL,'billy@test.com',NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -131,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-23 22:56:10
+-- Dump completed on 2014-12-26  9:35:46

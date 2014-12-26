@@ -76,6 +76,6 @@ public class CategoryService {
 	}
 	
 	public List<ExpenseType> findExpenseTypeByCategory(Integer category_id){
-		return null;
+		return expenseTypeStore.findByCategoryId(category_id);
 	}
 }

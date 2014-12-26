@@ -6,26 +6,27 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
-import com.cwind.entity.Expense;
+import com.cwind.entity.Expenses;
+import com.cwind.entity.ExpenseType;
 
 public class HibernateExpenseStore extends HibernateDaoSupport implements
 		ExpenseStore {
 	private static final Log log = LogFactory.getLog(HibernateExpenseStore.class);
 	
-	public Expense get(Integer id) {
+	public Expenses get(Integer id) {
 		log.debug("get expense by id: " + id);
-		return getHibernateTemplate().get(Expense.class, id);
+		return getHibernateTemplate().get(Expenses.class, id);
 	}
 
-	public Integer save(Expense expense) {
+	public Integer save(Expenses expense) {
 		return (Integer) getHibernateTemplate().save(expense);
 	}
 
-	public void update(Expense expense) {
+	public void update(Expenses expense) {
 		getHibernateTemplate().update(expense);
 	}
 
-	public void delete(Expense expense) {
+	public void delete(Expenses expense) {
 		getHibernateTemplate().delete(expense);
 	}
 
@@ -33,9 +34,8 @@ public class HibernateExpenseStore extends HibernateDaoSupport implements
 		getHibernateTemplate().delete(get(id));
 	}
 
-	public List<Expense> findAll() {
+	public List<Expenses> findAll() {
 		String queryStr = "from Expenses";
-		return (List<Expense>) getHibernateTemplate().find(queryStr);
+		return (List<Expenses>) getHibernateTemplate().find(queryStr);
 	}
-
 }

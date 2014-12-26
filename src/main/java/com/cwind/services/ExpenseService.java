@@ -2,7 +2,7 @@ package com.cwind.services;
 
 import java.util.List;
 
-import com.cwind.entity.Expense;
+import com.cwind.entity.Expenses;
 import com.cwind.store.ExpenseStore;
 
 public class ExpenseService {
@@ -16,19 +16,19 @@ public class ExpenseService {
 		this.expenseStore = expenseStore;
 	}
 
-	public Expense get(Integer id){
+	public Expenses get(Integer id){
 		return expenseStore.get(id);
 	}
 	
-	public Integer save(Expense expense){
+	public Integer save(Expenses expense){
 		return expenseStore.save(expense);
 	}
 	
-	public void update(Expense expense){
+	public void update(Expenses expense){
 		expenseStore.update(expense);
 	}
 	
-	public void delete(Expense expense){
+	public void delete(Expenses expense){
 		expenseStore.delete(expense);
 	}
 	
@@ -36,7 +36,7 @@ public class ExpenseService {
 		expenseStore.delete(id);
 	}
 	
-	public List<Expense> findAll(){
+	public List<Expenses> findAll(){
 		return expenseStore.findAll();
 	}
 }
