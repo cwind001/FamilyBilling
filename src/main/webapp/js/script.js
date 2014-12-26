@@ -142,8 +142,8 @@
 		
 		$scope.getTotalPrice = function() {
 			var total = 0;
-		    for(var i = 0; i < $scope.expenses.length; i++){
-		        var expense = $scope.expenses[i];
+		    for(var i = 0; i < $scope.filtered.length; i++){
+		        var expense = $scope.filtered[i];
 		        total += expense.price;
 		    }
 		    return total;
@@ -160,8 +160,32 @@
 		$scope.message = '贷款管理';
 	});
 
-	cwindApp.controller('fundAccountController', function($scope) {
-		$scope.message = '资金账户余额';
+	cwindApp.controller('fundAccountController', function($scope, $resource) {
+		var accountTypeList = $resource(categoryUrl.queryExpenseTypeByCategoryId);
+		$scope.accountTypes = accountTypeList.query({category_id : 4});
+		
+		var accountList = $resource(expenseUrl.queryExpense);
+		$scope.accounts = accountList.query({});
+		
+		var accountDelete = $resource(expenseUrl.deleteExpense);
+		$scope.deleteAccount = function(account, index){
+			$scope.accounts = accountDelete['delete']({id:account.id});
+		};
+		
+		$scope.getTotalFund = function() {
+			var total = 0;
+		    for(var i = 0; i < $scope.filtered.length; i++){
+		        var account = $scope.filtered[i];
+		        total += account.price;
+		    }
+		    return total;
+		}
+		
+		var accountAdd = $resource(expenseUrl.addExpense, {}, actions);
+		$scope.addAccount = function(){
+			$scope.newAccount.expenseType_id = $scope.expenseType.id;
+			$scope.accounts = accountAdd.add($scope.newAccount);
+		};
 	});
 	
 	cwindApp.controller('userController', function($scope, $resource){
