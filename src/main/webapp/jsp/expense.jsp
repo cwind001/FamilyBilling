@@ -15,7 +15,7 @@
 				<th>名称</th>
 				<th>数额</th>
 				<th>提供商</th>
-				<th>描述</th>
+				<th>备注</th>
 				<th>时间</th>
 				<th>操作</th>
 			</tr>
@@ -24,20 +24,31 @@
 				<td>{{expense.id}} - {{expense.title}} </td>
 				<td>{{expense.price}} </td>
 				<td>{{expense.vender}} </td>
-				<td>{{expense.description}} </td>
+				<td>{{expense.memo}} </td>
 				<td>{{expense.created}} </td>
 				<td><a class="btn btn-danger" ng-click="deleteExpense(expense, $index)">删除</a></td>
 			</tr>
 		</table>
 		</br>
-		记录数: {{ filtered.length }}
 		<table class="table table-striped">
 			<tr>
-				<td>新类别：<input type="text"	ng-model="newExpense.title" /> 
+				<td>记录数: {{ filtered.length }} </td>
+				<td>总金额：{{ getTotalPrice() }}</td>
+			</tr>
+			<tr>
+				<td>名称：<input type="text"	ng-model="newExpense.title" /> 
 				</td>
 			</tr>
 			<tr>
 				<td>数额：<input type="text"	ng-model="newExpense.price" /> 
+				</td>
+			</tr>
+			<tr>
+				<td>商家：<input type="text"	ng-model="newExpense.vender" /> 
+				</td>
+			</tr>
+			<tr>
+				<td>备注：<input type="text"	ng-model="newExpense.memo" /> 
 				</td>
 			</tr>
 			<tr>

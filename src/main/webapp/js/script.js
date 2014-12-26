@@ -131,19 +131,23 @@
 		});
 		
 		var expenseList = $resource(expenseUrl.queryExpense);
-		expenseList.query({}, function(expenses) {
-			$scope.expenses = espenses;
+		expenseList.query({}, function(data) {
+			$scope.expenses = data;
 		});
 		
 		var expenseDelete = $resource(expenseUrl.deleteExpense);
 		$scope.deleteExpense = function(expense, index){
-			$scope.expenses.splice(index, 1);
-			expenseDelete['delete']({
-				id : expense.id
-			}, {}, function(expenses) {
-				$scope.expenses = expenses;
-			});
+			$scope.expenses = expenseDelete['delete']({id:expense.id});
 		};
+		
+		$scope.getTotalPrice = function() {
+			var total = 0;
+		    for(var i = 0; i < $scope.expenses.length; i++){
+		        var expense = $scope.expenses[i];
+		        total += expense.price;
+		    }
+		    return total;
+		}
 		
 		var expenseAdd = $resource(expenseUrl.addExpense, {}, actions);
 		$scope.addExpense = function(){
