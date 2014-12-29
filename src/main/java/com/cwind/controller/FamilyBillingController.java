@@ -65,6 +65,16 @@ public class FamilyBillingController {
 		return expenses;
 	}
 	
+	@RequestMapping(value="/expense/{category_id}/expenseList", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Expenses> getExpensesByCategoryId(@PathVariable String category_id) {
+		List<Expenses> expenses = new ArrayList();
+		if(category_id != null) {
+			expenses = expenseService.findExpensesByCategory(Integer.valueOf(category_id));
+		}
+		return expenses;
+	}
+	
 	@RequestMapping(value="/category/categoryList", method=RequestMethod.GET)
 	@ResponseBody
 	public List<Category> getCategories() {
@@ -115,7 +125,7 @@ public class FamilyBillingController {
 	
 	@RequestMapping(value="/expenseType/{category_id}/typeList", method=RequestMethod.GET)
 	@ResponseBody
-	public List<ExpenseType> getExpenseTypeByCategoryId(@PathVariable String category_id){
+	public List<ExpenseType> getExpenseTypeByCategoryId(@PathVariable String category_id) {
 		List<ExpenseType> expenseTypes = new ArrayList();
 		if(category_id != null){
 			expenseTypes = categoryService.findExpenseTypeByCategory(Integer.valueOf(category_id));

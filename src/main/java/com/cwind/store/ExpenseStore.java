@@ -17,4 +17,5 @@ public interface ExpenseStore {
 	void delete(Expenses expense);
 	void delete(Integer id);
 	List<Expenses> findAll();
+	public List<Expenses> findByTypeId(Object expenseType_id);
 }

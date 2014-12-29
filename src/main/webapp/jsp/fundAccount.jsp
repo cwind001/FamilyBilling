@@ -6,7 +6,7 @@
 
 <div class="jumbotron text-left">
 	<h2>资金账户</h2>
-	<select ng-model="expenseType" ng-options="expenseType.displayname for expenseType in accountTypes track by expenseType.id" class="form-control">
+	<select ng-model="accountType" ng-options="accountType.displayname for accountType in accountTypes track by accountType.id" class="form-control">
 		<option value="">--请选择--</option>
 	</select>
 	<div>
@@ -19,7 +19,7 @@
 				<th>时间</th>
 				<th>操作</th>
 			</tr>
-			<tr ng-repeat="account in filtered = (accounts | filter:{'expenseType_id':expenseType.id})" ng-class-even="'even'"
+			<tr ng-repeat="account in filtered = (accounts | filter:{'expenseType_id':accountType.id})" ng-class-even="'even'"
 				ng-class-odd="'odd'">
 				<td>{{account.id}} - {{account.title}} </td>
 				<td>{{account.price}} </td>

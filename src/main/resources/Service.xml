@@ -45,6 +45,9 @@
 		<property name="expenseStore">
 			<ref bean="ExpenseStore" />
 		</property>
+		<property name="expenseTypeStore">
+			<ref bean="ExpenseTypeStore" />
+		</property>
 	</bean>
 	
 </beans>

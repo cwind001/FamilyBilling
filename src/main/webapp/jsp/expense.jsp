@@ -25,7 +25,7 @@
 				<td>{{expense.price}} </td>
 				<td>{{expense.vender}} </td>
 				<td>{{expense.memo}} </td>
-				<td>{{expense.created}} </td>
+				<td>{{expense.created | date:'yyyy-MM-dd'}} </td>
 				<td><a class="btn btn-danger" ng-click="deleteExpense(expense, $index)">删除</a></td>
 			</tr>
 		</table>
@@ -49,6 +49,10 @@
 			</tr>
 			<tr>
 				<td>备注：<input type="text"	ng-model="newExpense.memo" /> 
+				</td>
+			</tr>
+			<tr>
+				<td>时间：<input type="date" ng-model="newExpense.created" />
 				</td>
 			</tr>
 			<tr>

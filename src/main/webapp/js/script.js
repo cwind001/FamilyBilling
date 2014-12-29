@@ -24,7 +24,8 @@
 		'addExpense' : baseUrl + '/expense/add',
 		'queryExpense' : baseUrl + '/expense/expenseList',
 		'updateExpense' : baseUrl + '/expense/update',
-		'deleteExpense' : baseUrl + '/expense/delete/:id'		
+		'deleteExpense' : baseUrl + '/expense/delete/:id',		
+		'queryExpensesByCategoryId' : baseUrl + '/expense/:category_id/expenseList'
 	};
 	
 	var actions = {
@@ -130,8 +131,8 @@
 			$scope.expenseTypes = types;
 		});
 		
-		var expenseList = $resource(expenseUrl.queryExpense);
-		expenseList.query({}, function(data) {
+		var expenseList = $resource(expenseUrl.queryExpensesByCategoryId);
+		expenseList.query({ category_id : 1 }, function(data) {
 			$scope.expenses = data;
 		});
 		
@@ -154,6 +155,7 @@
 			$scope.newExpense.expenseType_id = $scope.expenseType.id;
 			$scope.expenses = expenseAdd.add($scope.newExpense);
 		};
+		
 	});
 	
 	cwindApp.controller('loanController', function($scope) {
@@ -164,8 +166,8 @@
 		var accountTypeList = $resource(categoryUrl.queryExpenseTypeByCategoryId);
 		$scope.accountTypes = accountTypeList.query({category_id : 4});
 		
-		var accountList = $resource(expenseUrl.queryExpense);
-		$scope.accounts = accountList.query({});
+		var accountList = $resource(expenseUrl.queryExpensesByCategoryId);
+		$scope.accounts = accountList.query({ category_id : 4 });
 		
 		var accountDelete = $resource(expenseUrl.deleteExpense);
 		$scope.deleteAccount = function(account, index){
@@ -183,7 +185,7 @@
 		
 		var accountAdd = $resource(expenseUrl.addExpense, {}, actions);
 		$scope.addAccount = function(){
-			$scope.newAccount.expenseType_id = $scope.expenseType.id;
+			$scope.newAccount.expenseType_id = $scope.accountType.id;
 			$scope.accounts = accountAdd.add($scope.newAccount);
 		};
 	});
