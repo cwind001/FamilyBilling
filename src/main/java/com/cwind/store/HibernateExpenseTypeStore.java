@@ -9,7 +9,7 @@ import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import com.cwind.entity.ExpenseType;
 
 public class HibernateExpenseTypeStore extends HibernateDaoSupport implements
-		ExpenseTypeStore {
+		AbstractStore<ExpenseType> {
 	private static final Log log = LogFactory.getLog(HibernateExpenseTypeStore.class);
 	
 	public static final String CATEGORY_ID = "category_id";

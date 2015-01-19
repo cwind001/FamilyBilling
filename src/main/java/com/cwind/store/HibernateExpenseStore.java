@@ -10,7 +10,7 @@ import com.cwind.entity.Expenses;
 import com.cwind.entity.ExpenseType;
 
 public class HibernateExpenseStore extends HibernateDaoSupport implements
-		ExpenseStore {
+	AbstractStore<Expenses> {
 	private static final Log log = LogFactory.getLog(HibernateExpenseStore.class);
 	public static final String EXPENSE_TYPE_ID = "expenseType_id";
 	
@@ -53,7 +53,6 @@ public class HibernateExpenseStore extends HibernateDaoSupport implements
 		}
 	}
 	
-	@Override
 	public List<Expenses> findByTypeId(Object expenseType_id) {
 		return findByProperty(EXPENSE_TYPE_ID, expenseType_id);
 	}

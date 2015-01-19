@@ -9,7 +9,7 @@ import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import com.cwind.entity.Category;
 
 public class HibernateCategoryStore extends HibernateDaoSupport implements
-		CategoryStore {
+		AbstractStore<Category> {
 	private static final Log log = LogFactory.getLog(HibernateCategoryStore.class);
 	
 	public Category get(Integer id) {
@@ -38,4 +38,8 @@ public class HibernateCategoryStore extends HibernateDaoSupport implements
 		return (List<Category>) getHibernateTemplate().find(queryStr);
 	}
 
+	@Override
+	public List<Category> findByProperty(String propertyName, Object value) {
+		return null;
+	}
 }

@@ -4,26 +4,26 @@ import java.util.List;
 
 import com.cwind.entity.Category;
 import com.cwind.entity.ExpenseType;
-import com.cwind.store.CategoryStore;
-import com.cwind.store.ExpenseTypeStore;
+import com.cwind.store.HibernateCategoryStore;
+import com.cwind.store.HibernateExpenseTypeStore;
 
 public class CategoryService {
-	private CategoryStore categoryStore;
-	private ExpenseTypeStore expenseTypeStore;
+	private HibernateCategoryStore categoryStore;
+	private HibernateExpenseTypeStore expenseTypeStore;
 	
-	public ExpenseTypeStore getExpenseTypeStore() {
+	public HibernateExpenseTypeStore getExpenseTypeStore() {
 		return expenseTypeStore;
 	}
 
-	public void setExpenseTypeStore(ExpenseTypeStore expenseTypeStore) {
+	public void setExpenseTypeStore(HibernateExpenseTypeStore expenseTypeStore) {
 		this.expenseTypeStore = expenseTypeStore;
 	}
 
-	public CategoryStore getCategoryStore() {
+	public HibernateCategoryStore getCategoryStore() {
 		return categoryStore;
 	}
 
-	public void setCategoryStore(CategoryStore categoryStore) {
+	public void setCategoryStore(HibernateCategoryStore categoryStore) {
 		this.categoryStore = categoryStore;
 	}
 

@@ -15,11 +15,6 @@ public class TestExpenseService {
 
 		ExpenseService es = (ExpenseService) context.getBean("ExpenseService");
 		Expenses tmpExpense = new Expenses();
-		tmpExpense.setTitle("测试用品");
-		tmpExpense.setPrice(10.8);
-		tmpExpense.setUser_id(1);
-		tmpExpense.setExpenseType_id(1);
-		es.save(tmpExpense);
 		
 		List<Expenses> expenses = es.findAll();
 		for (int i = 0; i < expenses.size(); i++) {
