@@ -19,7 +19,7 @@
 				<th>时间</th>
 				<th>操作</th>
 			</tr>
-			<tr ng-repeat="expense in filtered = (expenses | filter:{'expenseType_id':expenseType.id})" ng-class-even="'even'"
+			<tr ng-repeat="expense in filtered = (expenses | filter:{'expenseType_id':expenseType.id}:true)" ng-class-even="'even'"
 				ng-class-odd="'odd'">
 				<td>{{expense.id}} - {{expense.title}} </td>
 				<td>{{expense.price}} </td>
