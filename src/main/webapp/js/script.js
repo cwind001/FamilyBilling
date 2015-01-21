@@ -107,7 +107,8 @@
 		});
 		
 		var expenseTypeDelete = $resource(categoryUrl.deleteExpenseType);
-		$scope.deleteExpenseType = function(expenseType, index){
+		$scope.deleteExpenseType = function(expenseType){
+			var index = $scope.expenseTypes.indexOf(expenseType);
 			$scope.expenseTypes.splice(index, 1);
 			expenseTypeDelete['delete']({
 				id : expenseType.id
@@ -137,8 +138,14 @@
 		});
 		
 		var expenseDelete = $resource(expenseUrl.deleteExpense);
-		$scope.deleteExpense = function(expense, index){
-			$scope.expenses = expenseDelete['delete']({id:expense.id});
+		$scope.deleteExpense = function(expense){
+			var index = $scope.expenses.indexOf(expense);
+			$scope.expenses.splice(index, 1);
+			expenseDelete['delete']({
+				id : expense.id
+			}, {}, function(expenses) {
+				$scope.expenses
+			});
 		};
 		
 		$scope.getTotalPrice = function() {

@@ -26,7 +26,7 @@
 				<td>{{expense.vender}} </td>
 				<td>{{expense.memo}} </td>
 				<td>{{expense.created | date:'yyyy-MM-dd'}} </td>
-				<td><a class="btn btn-danger" ng-click="deleteExpense(expense, $index)">删除</a></td>
+				<td><a class="btn btn-danger" ng-click="deleteExpense(expense)">删除</a></td>
 			</tr>
 		</table>
 		</br>

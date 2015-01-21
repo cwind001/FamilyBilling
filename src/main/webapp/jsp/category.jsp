@@ -18,7 +18,7 @@
 			<tr ng-repeat="expenseType in filtered = (expenseTypes | filter:{'category_id':category.id})" ng-class-even="'even'"
 				ng-class-odd="'odd'">
 				<td>{{expenseType.id}} - {{expenseType.displayname}} </td>
-				<td><a class="btn btn-danger" ng-click="deleteExpenseType(expenseType, $index)">删除</a></td>
+				<td><a class="btn btn-danger" ng-click="deleteExpenseType(expenseType)">删除</a></td>
 			</tr>
 		</table>
 		</br>
