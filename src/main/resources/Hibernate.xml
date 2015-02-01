@@ -57,4 +57,17 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+
+	<bean id="FundAccountStore" class="com.cwind.store.HibernateFundAccountStore">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="FundBalanceStore" class="com.cwind.store.HibernateFundBalanceStore">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
 </beans>

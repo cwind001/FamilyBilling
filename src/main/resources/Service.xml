@@ -50,4 +50,12 @@
 		</property>
 	</bean>
 	
+	<bean id="FundAccountService" class="com.cwind.services.FundAccountService">
+		<property name="fundAccountStore">
+			<ref bean="FundAccountStore" />
+		</property>
+		<property name="fundBalanceStore">
+			<ref bean="FundBalanceStore" />
+		</property>
+	</bean>
 </beans>
