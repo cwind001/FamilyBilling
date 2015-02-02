@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @Table(name="FundAccount")
 public class FundAccount {
 	private Integer id;
+	private Integer category_id;
 	private String title;
 	private String vender;
 	private String description;
@@ -20,15 +21,16 @@ public class FundAccount {
 		
 	}
 	
-	public FundAccount(Integer id, String title, String vender,
-			String description) {
+	public FundAccount(Integer id, Integer category_id, String title,
+			String vender, String description) {
 		super();
 		this.id = id;
+		this.category_id = category_id;
 		this.title = title;
 		this.vender = vender;
 		this.description = description;
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name="id")
@@ -39,6 +41,15 @@ public class FundAccount {
 		this.id = id;
 	}
 	
+	@Column(name="category_id")
+	public Integer getCategory_id() {
+		return category_id;
+	}
+
+	public void setCategory_id(Integer category_id) {
+		this.category_id = category_id;
+	}
+
 	@Column(name="title")
 	public String getTitle() {
 		return title;
