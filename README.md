@@ -1,11 +1,11 @@
 FamilyBilling
 ================
 
-±¾ÏîÄ¿ÔµÓÚÒ»¸öAngularJS³õÑ§ÕßÏëÒª½«ÆäÓ¦ÓÃÓÚÊµ¼ùµÄÏë·¨£¬Îª¼ÒÍ¥Ìá¹©Ò»¸öÈ¡´ú¼ÇÊÂ±¾ºÍµç×Ó±í¸ñµÄ²ÆÎñ¹ÜÀí½â¾ö·½°¸¡£±Ï¾¹£¬ÈÎºÎ¼¼Êõ×ÜÊÇÒªÓÃÓÚ½â¾öÊµ¼ÊÎÊÌâµÄ¡£
+æŠ€æœ¯åªæ˜¯æ‰‹æ®µï¼Œè§£å†³é—®é¢˜æ‰æ˜¯ç›®çš„ã€‚è¾¹å­¦AngularJSï¼Œè¾¹ç»™è‡ªå®¶æ·»ç½®ä¸€ä¸ªå–ä»£è®°äº‹æœ¬å’Œç”µå­è¡¨æ ¼çš„è´¢åŠ¡ç®¡ç†è§£å†³æ–¹æ¡ˆï¼Œä½•ä¹è€Œä¸ä¸ºï¼Ÿ
 
-¼¼ÊõÑ¡ÐÍ£ºAngularJS + SpringMVC + Hibernate; Bootstrap, Restful API, Maven¡£
+æŠ€æœ¯é€‰åž‹ï¼šAngularJS + SpringMVC + Hibernate; Bootstrap, Restful API, Mavenã€‚
 
-###¿ª·¢¹¤¾ß¼°²¿Êð»·¾³
+###å¼€å‘å·¥å…·åŠéƒ¨ç½²çŽ¯å¢ƒ
 JDK v1.8<br/>
 Maven 3.2.3     
 Git 1.8.4     
@@ -16,20 +16,12 @@ Spring 4.1.1<br/>
 Hibernate 4.3.6<br/>
 fasterxml.jackson 2.1.1<br/>
 
-Ê×ÏÈÐëµ¼Èëfamilybilling.sql
+é¦–å…ˆé¡»å¯¼å…¥familybilling.sql
 
-###ÒÑÍê³ÉµÄ¹¦ÄÜ
-·ÑÓÃ·ÖÀà¹ÜÀí<br/>
-¿ªÖ§¹ÜÀí<br/>
-
-###AngularJSÖØµã
-Ë«ÏòÊý¾Ý°ó¶¨<br/>
-ngRoute - ¶àÖØÊÓÍ¼ºÍÂ·ÓÉ<br/>
-ngResource - Í¨¹ýREST APIÓë·þÎñÆ÷½»»¥<br/>
+###AngularJSå­¦ä¹ é‡ç‚¹
+åŒå‘æ•°æ®ç»‘å®š<br/>
+ngRoute - å¤šé‡è§†å›¾å’Œè·¯ç”±<br/>
+ngResource - é€šè¿‡REST APIä¸ŽæœåŠ¡å™¨äº¤äº’<br/>
 Filter
 
-###´ýÌí¼ÓµÄ¹¦ÄÜ
-´û¿î¹ÜÀí<br/>
-×Ê²ú¹ÜÀí<br/>
-ÓÃ»§µÇÂ¼ÓëÈ¨ÏÞ¿ØÖÆ<br/>
-±¨±í£¨»ùÓÚÊ±¼ä¼°·ÖÀà£©
+
